@@ -1,0 +1,24 @@
+<div class="container-lg">
+    <h5 class="my-3 text-center text-muted text-lg">Top Five Products</h5>
+    <!-- <div class="align-items-center justify-content-center"> -->
+        <div class="card my-3 w-75" style="margin: 0 auto;">
+            <div class="card-body">
+                <!-- <div class="card-title">In progress Orders</div> -->
+                <table class="table table-warning table-striped table-borderless table-sm w-100">
+                    <thead>
+                        <th class="text-muted text-sm">GTIN</th>
+                        <th class="text-muted text-sm">Name</th>
+                        <th class="text-muted text-sm">Total Quantity Sold</th>
+                    </thead>
+                    <tbody *ngFor="let prod of products">
+                        <tr>
+                            <td class="text-muted text-sm">{{prod.gtin}}</td>
+                            <td class="text-muted text-sm">{{prod.name}}</td>
+                            <td class="text-muted text-sm">{{prod.totalQtySold}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <!-- </div> -->
+</div>

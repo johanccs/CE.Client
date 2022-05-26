@@ -1,0 +1,23 @@
+<div class="container-lg">
+    <h5 class="my-3 text-center text-muted text-lg">Orders in progress</h5>
+    <!-- <div class="align-items-center justify-content-center"> -->
+        <div class="card my-3 w-75" style="margin: 0 auto;">
+            <div class="card-body">
+                <table class="table table-success table-striped table-borderless table-sm w-100">
+                    <thead>
+                        <th class="text-muted text-sm">Id</th>
+                        <th class="text-muted text-sm">Order Date</th>
+                        <th class="text-muted text-sm">Total Quantity</th>
+                    </thead>
+                    <tbody *ngFor="let order of orders">
+                        <tr>
+                            <td class="text-muted text-sm">{{order.id}}</td>
+                            <td class="text-muted text-sm">{{order.orderDate}}</td>
+                            <td class="text-muted text-sm">{{order.totalQtyOrdered}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <!-- </div> -->
+</div>
