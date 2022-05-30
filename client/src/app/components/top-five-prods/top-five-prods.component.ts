@@ -10,6 +10,7 @@ import { ProdService } from 'src/app/services/prod.service';
 export class TopFiveProdsComponent implements OnInit {
 
   products: Product[] = [];
+  header: string = 'Top Five Products';
 
   constructor(private prodService: ProdService) { }
 
@@ -18,9 +19,12 @@ export class TopFiveProdsComponent implements OnInit {
   }
 
   loadLiveProds(){
+    this.header = "Top Five Products - Fetching. Please wait..."
     this.prodService.getTopFiveProducts().subscribe(data=> {
        this.products = data as Product[];
-       console.log(this.products);
+       this.header = "Top Five Products";
+    }, err => {
+      this.header = "Top Five Products";
     });
   }
 

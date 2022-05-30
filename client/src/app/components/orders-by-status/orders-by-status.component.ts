@@ -10,25 +10,23 @@ import { OrderService } from 'src/app/services/order.service';
 export class OrdersByStatusComponent implements OnInit {
 
   orders: Order[] = [];
+  header: string = 'Orders in progress';
 
   constructor(private orderService: OrderService ) { }
 
   ngOnInit(): void {
-    
     this.loadLiveOrders();
   }
 
-
-  loadDummyOrder() {
-    this.orders = [
-      new Order(1, '2022-01-01', 20),
-      new Order(2, '2022-03-01', 12),
-    ]
-  }
-
   loadLiveOrders(){
+    this.header = "Orders in progress - Fetching orders. Please wait";
     this.orderService.getOrdersInProgress().subscribe(data=> {
        this.orders = data as Order[];
+       this.header = "Order in progress";
+    }, err => {
+      alert(err);
+  
     });
+
   }
 }
