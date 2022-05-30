@@ -8,6 +8,7 @@ import { OrdersByStatusComponent } from './components/orders-by-status/orders-by
 import { TopFiveProdsComponent } from './components/top-five-prods/top-five-prods.component';
 import { UpdateStockComponent } from './components/update-stock/update-stock.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

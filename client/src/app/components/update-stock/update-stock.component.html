@@ -1,1 +1,83 @@
-<p>update-stock works!</p>
+<div class="container-lg">
+    <h5 class="my-3 text-center text-muted text-lg">{{header}}</h5>
+    <div class="card my-3 w-100" style="margin: 0 auto;">
+        <div class="row">
+            <div class="col">
+                <div class="card-body">
+                    <!-- <div class="card-title">In progress Orders</div> -->
+                    <table class="table table-info table-striped table-borderless table-sm w-100">
+                        <thead>
+                            <th class="text-muted text-sm">Id</th>
+                            <th class="text-muted text-sm">Order Date</th>
+                         
+                        </thead>
+                        <tbody *ngFor="let prod of products">
+                            <tr>
+                                <td class="text-muted text-sm">{{prod.id}}</td>
+                                <td class="text-muted text-sm">{{prod.orderDate}}</td>                            
+                                <td><button type="button" class="btn btn-success btn-sm btn-small" (click)="displayChildren(prod)">Select</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card-body">
+                    <!-- <div class="card-title">In progress Orders</div> -->
+                    <table class="table table-info table-striped table-borderless table-sm w-100">
+                        <thead>
+                            <th class="text-muted text-sm">GTIN</th>
+                            <th class="text-muted text-sm">Name</th>
+                            <th class="text-muted text-sm">Total Quantity Sold</th>
+                        </thead>
+                        <tbody *ngFor="let ptbu of prodToBeUpdated">
+                            <tr>
+                                <td class="text-muted text-sm">{{ptbu.gtin}}</td>
+                                <td class="text-muted text-sm">{{ptbu.description}}</td>
+                                <td class="text-muted text-sm">{{ptbu.qty}}</td>
+                                <td><button type="button" class="btn btn-success btn-sm btn-small" (click)="displayChildDetail(ptbu)">Select</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <form (submit)="update()">
+                <div class="row my-2 mx-2">
+                    <div class="col-sm-1 cols-lg-4">
+                        <div class="form-group">
+                            <label class="text-sm">Id</label>
+                            <input type="text" [value]="id" class="form-control form-control-sm width-sm text-sm">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 cols-lg-4">
+                        <div class="form-group">
+                            <label class="text-sm">Description</label>
+                            <input type="text" [value]="description" class="form-control form-control-sm text-sm">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 cols-lg-4">
+                        <div class="form-group">
+                            <label class="text-sm">GTIN</label>
+                            <input type="text" [value]="gtin" class="form-control form-control-sm text-sm">
+                        </div>
+                    </div>
+                    <div class="col-sm-2 cols-lg-4">
+                        <div class="form-group">
+                            <label class="text-sm">Quantity</label>
+                            <input type="text" 
+                                   [(ngModel)]="qty"
+                                   name="qty" 
+                                   class="form-control form-control-sm text-sm">
+                        </div>
+                    </div>
+                    <div class="col-sm-3 cols-lg-4">
+                        <div class="form-group">
+                           <button type="submit" class="btn btn-primary btn-med mt-4">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
